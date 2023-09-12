@@ -1,7 +1,7 @@
-import React from 'react';
-import AppHeader from "./AppHeader";
-import SearchPanel from "./SearchPanel";
-import TodoList from "./TodoList";
+import React, {useState} from 'react';
+import AppHeader from "../appHeader";
+import SearchPanel from "../searchPanel";
+import TodoList from "../todoList";
 
 import "./app.css"
 
@@ -13,11 +13,25 @@ const todoData = [
 ]
 
 const App = () => {
+
+	const [state, setState] = useState(todoData)
+
+	const deleteItem = (id) => {
+		console.log(id);
+		setState(() => {
+			return [
+				...state.filter((item) => item.id !== id)
+			]
+		})
+	}
+
 	return (
 		<div className="container-sm main">
 			<AppHeader />
 			<SearchPanel />
-			<TodoList todoData={todoData}/>
+			<TodoList
+				todoData={state}
+				onDeleted={deleteItem}/>
 		</div>
 	)
 }
