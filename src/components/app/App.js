@@ -4,6 +4,7 @@ import SearchPanel from "../searchPanel";
 import TodoList from "../todoList";
 
 import "./app.css"
+import ItemAddForm from "../itemAddForm/ItemAddForm";
 
 
 const todoData = [
@@ -19,9 +20,7 @@ const App = () => {
 	const deleteItem = (id) => {
 		console.log(id);
 		setState(() => {
-			return [
-				...state.filter((item) => item.id !== id)
-			]
+			return [...state].filter((item) => item.id !== id)
 		})
 	}
 
@@ -29,6 +28,7 @@ const App = () => {
 		<div className="container-sm main">
 			<AppHeader />
 			<SearchPanel />
+			<ItemAddForm />
 			<TodoList
 				todoData={state}
 				onDeleted={deleteItem}/>
