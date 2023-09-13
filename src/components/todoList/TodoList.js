@@ -2,7 +2,6 @@ import React from 'react';
 
 import TodoListItem from "../todoListItem";
 import "./todo-list.css"
-import sortAndSearch from "../../utils/sortAndSearch";
 
 const TodoList = ({ todoData,
 	                  onDeleted,
