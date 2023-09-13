@@ -13,7 +13,7 @@ const SearchPanel = ({ selectedCategory, findItem, filter }) => {
 	}
 
 	return (
-		<div className="d-flex">
+		<div className="d-flex search-panel">
 			<input value={someItem}
 			       placeholder="search"
 			       className="search-input"

@@ -28,7 +28,7 @@ const ItemsStatusFilter = ({ selectedCategory, filter }) => {
 	})
 
 	return (
-		<div className="btn-group">
+		<div className="btn-group filter-buttons">
 			{buttonsGroup}
 		</div>
 	)

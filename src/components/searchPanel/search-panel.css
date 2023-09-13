@@ -4,3 +4,13 @@
     margin-right: 3px;
     padding: 5px;
 }
+
+@media (max-width: 576px) {
+    .search-panel {
+        flex-wrap: wrap;
+    }
+    .search-input {
+        margin: 0 0 5px 0;
+        padding: 5px;
+    }
+}
