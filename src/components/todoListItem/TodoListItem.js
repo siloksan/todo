@@ -2,33 +2,14 @@ import React from 'react';
 
 import "./todo-list-item.css"
 
-class TodoListItem extends React.Component {
+const TodoListItem = ({
+	                      label,
+	                      done,
+	                      important,
+	                      onDeleted,
+	                      onToggleDone,
+	                      onToggleImportant  }) => {
 
-	state = {
-		done: false,
-		important: false
-	}
-
-	onLabelClick = () => {
-		this.setState(({ done }) => {
-			return {
-				done: !done
-			}
-		})
-	}
-
-	onExclamationClick = () => {
-		this.setState(({ important }) => {
-			return {
-				important: !important
-			}
-		})
-	}
-
-	render() {
-		const { label, onDeleted } = this.props;
-
-		let { done, important } = this.state
 
 		let itemStyle = 'todo-list-item-label'
 
@@ -40,7 +21,7 @@ class TodoListItem extends React.Component {
 		return (
 			<span className={className}>
 			<span className={itemStyle}
-			      onClick={ this.onLabelClick }>
+			      onClick={onToggleDone}>
 				{label}
 			</span>
 			<div>
@@ -53,13 +34,12 @@ class TodoListItem extends React.Component {
 				<button
 					type="button"
 					className="btn btn-outline-success btn-sm float-right"
-					onClick={this.onExclamationClick}>
+					onClick={onToggleImportant}>
 					<i className="bi bi-exclamation"></i>
 				</button>
 				</div>
 		</span>
-		);
-	}
+		)
 }
 
 TodoListItem.defaultProps = {important: false}
